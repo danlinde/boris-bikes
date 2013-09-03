@@ -2,7 +2,7 @@ require 'station'
 
 class Van
 
-attr_reader :name
+attr_reader :name, :broken_bikes, :fixed_bikes
 
   def initialize(name)	
     @name = name
@@ -13,7 +13,7 @@ attr_reader :name
   end
 
   def accept_fixed_bikes(garage)
-  	garage.fixed_bikes
+  	@fixed_bikes = garage.fixed_bikes
   end
 
   def deliver_fixed_bikes(station)
@@ -21,7 +21,8 @@ attr_reader :name
   end
 
   def deliver_broken_bikes(garage)
-  	garage.unload_van
+  	@broken_bikes = garage.unload_van
+
   end
 
 end

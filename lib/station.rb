@@ -62,7 +62,7 @@ class Station
   end
 
   def unload_van(van)
-  	van.deliver_fixed_bikes
+  	van.fixed_bikes
     @list_of_bikes = @list_of_bikes.each {|key, value| @list_of_bikes[key] = 'available' if value == 'garage'}
    end
 end

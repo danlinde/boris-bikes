@@ -54,14 +54,14 @@ describe Station do
 
     it 'asks a van to return fixed bikes' do 
       van = double :van 
-      expect(van).to receive(:deliver_fixed_bikes)
+      expect(van).to receive(:fixed_bikes)
 
       station.unload_van(van)
     end
 
-    it 'updates list of bikes to show bikes sent to garage' do
+    it 'updates list of bikes to show bikes received from the garage' do
       
-      van = double(:van, {:deliver_fixed_bikes => true})
+      van = double(:van, {:fixed_bikes => true})
       station_garage.unload_van(van)
       expect(station_garage.list_of_bikes).to eq({"s-123-ab"=>"available", "s-234-cd"=>"broken", "s-235-cd"=>"available"})
     end
