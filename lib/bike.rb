@@ -1,7 +1,7 @@
 class Bike
 
-	attr_reader :serial_number, :good_working_order, :break
-	attr_accessor 
+	attr_reader :serial_number, :good_working_order
+    attr_accessor :broken, :fixed
 
 	def initialize(serial_number)
 		@serial_number = serial_number
@@ -12,11 +12,11 @@ class Bike
 		@serial_number
 	end
 
-	def break
+	def broken
 		@good_working_order = false
 	end
 
-	# def good_working_order?
-
-
+	def fixed
+		@good_working_order = true
+	end
 end
