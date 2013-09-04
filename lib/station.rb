@@ -1,3 +1,4 @@
+require_relative './van'
 
 class Station
 
@@ -23,17 +24,15 @@ class Station
   end
 
 	def rent_out_a_bike
-		if bike_available
-  	  @bike = self.bike  # this returned number needs to be stored somewhere
-      remove_bike_from_list(@bike)
-      @bike
-    end
+	  @bike = bike  # this returned number needs to be stored somewhere
+    remove_bike_from_list(@bike)
+    @bike
   end
 
   def bike
-     @bikes = @list_of_bikes.select {|serial, availability| availability == 'available'}
-	   @bike = @bikes.first[0]
-	   @bike
+    @all_bikes = @list_of_bikes.clone
+    @bikes_available = @all_bikes.delete_if {|k, v| v != 'available'}
+    @bike = Hash[*@bikes_available.first]
   end
 	
 	def remove_bike_from_list(serial_num)

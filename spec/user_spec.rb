@@ -59,25 +59,22 @@ describe User do
   	expect(user.can_return_a_bike?(station)).to be_false
   end
 
-  it 'asks the station to accept a bike' do
-  	station = double(:station)
-  	expect(station).to receive(:accept_a_bike)
-
-  	user.return_a_bike(station)
-  end
-
-  it 'returns a bike' do
-  	station = double(:station, { :accept_a_bike => true})
-
-  	expect(user.return_a_bike(station)).to be_true
+  context 'has rented a bike' do 
+	  
+	  it 'asks the station to accept a bike' do
+	  	user_with_bike = User.new('bob', {'s-123-ab' => 'available'})
+	  	station = double(:station, {:accept_bike => true})
+	  	expect(station).to receive(:accept_bike)
+	  	user_with_bike.return_a_bike(station)
+	  end
+    
+    context 'returns a bike' do 
+		  it 'and bike is removed from record' do
+		  	user_with_bike = User.new('bob', {'s-123-ab' => 'available'})
+		  	station = double(:station, {:accept_bike => {}})
+		  	expect(user_with_bike.return_a_bike(station)).to be_true
+			end
+		end
 	end
-
-	it 'return removes bike from record' do
-		station = double(:station, { :accept_a_bike => true})
-    user.return_a_bike(station) 
-		expect(user.bike).to eq []
-	end
-
-
 end
 

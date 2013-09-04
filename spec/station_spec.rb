@@ -12,7 +12,7 @@ describe Station do
   end
 
     it 'gives the bike rented if bikes available' do 
-      expect(station.rent_out_a_bike).to eq 's-123-ab'
+      expect(station.rent_out_a_bike).to eq({"s-123-ab" => "available"})
     end
 
     it 'can update a bike to broken' do 
@@ -24,7 +24,7 @@ describe Station do
     end
 
     it 'returns an available bike' do 
-      expect(station.bike).to eq 's-123-ab'
+      expect(station.bike).to eq({"s-123-ab" => "available"})
     end
 
     it 'can tell you if space is available' do 

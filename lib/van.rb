@@ -1,4 +1,4 @@
-require 'station'
+require_relative './station'
 
 class Van
 
@@ -13,7 +13,7 @@ attr_reader :name, :broken_bikes, :fixed_bikes
   end
 
   def accept_fixed_bikes(garage)
-  	@fixed_bikes = garage.fixed_bikes
+  	 @fixed_bikes = garage.fixed_bikes
   end
 
   def deliver_fixed_bikes(station)
@@ -22,7 +22,5 @@ attr_reader :name, :broken_bikes, :fixed_bikes
 
   def deliver_broken_bikes(garage)
   	@broken_bikes = garage.unload_van
-
   end
-
 end
