@@ -1,22 +1,26 @@
 class Bike
 
-	attr_reader :serial_number, :good_working_order
-    attr_accessor :broken, :fixed
+	attr_reader :serial_number
+    attr_accessor :broken, :fixed, :working_order
 
-	def initialize(serial_number)
-		@serial_number = serial_number
-		@good_working_order = true
+	def initialize
+		@serial_number = set_serial_number
+		@working_order = 'working'
 	end
 
-	def serial_number
-		@serial_number
+	def set_serial_number
+    	@serial_number = "#{rand(10000)}-abc-#{rand(10000)}"
+	end
+
+	def bike_details
+		"{#{@serial_number} => #{@working_order}}"
 	end
 
 	def broken
-		@good_working_order = false
+	 	@working_order = 'broken'
 	end
 
 	def fixed
-		@good_working_order = true
+      @working_order = 'working'
 	end
 end
