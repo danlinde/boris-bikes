@@ -1,4 +1,5 @@
 require_relative '../lib/station'
+require_relative '../lib/garage'
 
 describe Station do 
   let(:station){Station.new('Pimlico', 2)}
@@ -84,16 +85,20 @@ describe Station do
   end
 
   it 'updates list of bikes to show bikes sent to garage' do
-     station.new_stock 
+    station.new_stock 
+
     van = double(:van, {:accept_broken_bikes => true})
     station.load_van(van)
     expect(station.list_of_bikes).to be_true
   end
 
-  it 'asks a van to return fixed bikes' do 
+  it 'unloads fixed bikes from van' do 
     station.new_stock 
-    van = double :van 
-    expect(van).to receive(:fixed_bikes)
+    # station.rent_out_a_bike 
+    # station.accept_bike(station.bike)
+    # station.bike_broken
+    
+    van = double(:van, {:fixed_bikes => })
 
     station.unload_van(van)
   end

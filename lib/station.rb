@@ -8,6 +8,7 @@ class Station
 	def initialize(name, capacity)
 		@name = name
 		@list_of_bikes = []
+		@number_of_spaces_needed_for_repaired_bikes = 0
 		@capacity = capacity
 	end
 
@@ -66,8 +67,16 @@ class Station
   end
 
   def unload_van(van)
-  	van.fixed_bikes
-  	@list_of_bikes = @list_of_bikes.each {|bike| bike.fixed if bike.working_order? == false}
+    update_list_of_bikes(van.fixed_bikes)
+  end
+
+  def update_list_of_bikes(van_list)
+
+	 	# @list_of_bikes.each do |x|
+	  #   van_list.each do |y| 
+   #      x.working_order = true if x.serial_number == van_list[y].serial_number
+   #    end
+   #  end
   end
 end
 

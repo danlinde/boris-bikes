@@ -28,6 +28,6 @@ class Bike
 	end
 
 	def fixed
-     @working_order = true
+    @working_order = true
 	end
 end
