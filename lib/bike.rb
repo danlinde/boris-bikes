@@ -1,13 +1,16 @@
 class Bike
 
-	attr_reader :serial_number
-    attr_accessor :broken, :fixed, :working_order
+  attr_reader :working_order
+  attr_accessor :broken, :fixed
 
 	def initialize
 		@serial_number = set_serial_number
-		@working_order = 'working'
+		@working_order = true
 	end
 
+  def serial_number
+    @serial_number
+  end
 	def set_serial_number
     	@serial_number = "#{rand(10000)}-abc-#{rand(10000)}"
 	end
@@ -16,11 +19,15 @@ class Bike
 		"{#{@serial_number} => #{@working_order}}"
 	end
 
+	def working_order?
+    @working_order
+	end
+
 	def broken
-	 	@working_order = 'broken'
+	 	@working_order = false
 	end
 
 	def fixed
-      @working_order = 'working'
+     @working_order = true
 	end
 end

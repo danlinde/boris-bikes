@@ -2,10 +2,12 @@ require_relative './station'
 
 class Van
 
-attr_reader :name, :broken_bikes, :fixed_bikes
-
   def initialize(name)	
     @name = name
+  end
+
+  def name
+    @name
   end
 
   def accept_broken_bikes(station)
