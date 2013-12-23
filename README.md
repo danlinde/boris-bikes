@@ -1,31 +1,8 @@
 Boris Bikes
+========================
 
-Excercise to practive OOP.
+The goal of this exercise is to practice Object-Oriented Programming (OOP) and Object-Oriented Design (OOD).
 
-Here's a quick recap of the Boris Bikes system
+The Boris Bikes is a simple system for managing Boris bikes in London. The system manages bikes that can be rented by users from docking stations and returned there at the end of the rental. The bikes can break while being used, in which case they will not be available for rental after they are returned. There is a garage that can fix broken bikes. A van is used to move broken bikes from the stations to the garage. It can also be used to take fixed bikes back to the station(s). The van, all stations and the garage have fixed capacity, so they cannot take more bikes that they can hold.
 
-- People can rent and return bikes (from bike stations) 
----> one station (done)
----> Add a second station
-- Bikes don't have to be dropped off at the same station as they were rented from
----> dropped off at station rented from (done)
----> dropped off at a different station
-- Bikes can be broken
----> broken state (done)
-- Broken bikes cannot be rented
----> 
-- Vans pick up broken bikes from stations
----> 
-- Vans drop off broken bikes to garages
---->
-- Garages repair broken bikes
---->
-- Vans can pick up repaired bikes
---->
-- Repaired bikes are taken back to stations
----> for now lets do back to original station
----> then we need to figure a more efficient solution
-- Stations have a maximum number of bikes they can hold
----> max is going to include broken bikes awaiting fix
----> if garage says unrepairable bike gets removed from station 
------> bike gets updated
+I worked on this excercise at Makers Academy with @mindfulcoder.
